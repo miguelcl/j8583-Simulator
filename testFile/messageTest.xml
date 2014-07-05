@@ -1,0 +1,34 @@
+<j8583-config>
+    <template type="100">
+	<random-field num="2" type="NUMERIC" min="1" max="100" length="10"/>
+        <random-field num="3" type="ALPHA" length="4" caseOpt="1"/>
+        <random-field num="4" type="AMOUNT" min="1.11" max="2.02"/>
+        <random-field num="5" type="DATE10" min="28/10/1986" max="29/10/2013"/>
+        <random-field num="6" type="DATE4" min="28/10/1986" max="28/10/2014"/>
+        <random-field num="7" type="DATE_EXP" min="28/10/1986" max="28/12/2013"/>
+        <random-field num="8" type="TIME" min="28/10/1986" max="28/12/2013"/>
+        <random-field num="9" type="LLVAR" length="20" caseOpt="2"/>
+        <random-field num="10" type="LLLVAR" length="30" onlyAlpha="true" />        
+        <random-field num="11" type="ALPHA" length="10" filePath="testFile/dataTest.txt"  colID="0"/>
+        <random-field num="12" type="ALPHA" length="10" filePath="testFile/dataTest.txt"  colID="1"/>
+    </template>
+        
+    <parse type="0110">
+        <field num="7" type="DATE_EXP" />
+        <field num="11" type="ALPHA" length="10"/>
+        <field num="12" type="ALPHA" length="10"/>
+    </parse>
+        
+    <template type="200">
+	<random-field num="2" type="NUMERIC" min="1" max="100" length="10"/>                
+        <random-field num="11" type="ALPHA" length="10" filePath="testFile/dataTest.txt"  colID="0"/>
+        <random-field num="12" type="ALPHA" length="10" filePath="testFile/dataTest.txt"  colID="1"/>
+    </template>
+    
+    <parse type="0200">
+        <field num="2" type="NUMERIC" length="10"/>
+        <field num="11" type="ALPHA" length="10"/>
+        <field num="12" type="ALPHA" length="10"/>
+    </parse>
+    
+</j8583-config>
