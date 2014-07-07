@@ -37,15 +37,16 @@ import org.xml.sax.SAXException;
 /**
  *
  * @author Mauri
+ * @param <T>
  */
 public class MessageFactoryDecorator <T extends IsoMessage> {
     
-    private static Logger logger = LoggerFactory.getLogger(MessageFactoryDecorator.class);
+    private static final Logger logger = LoggerFactory.getLogger(MessageFactoryDecorator.class);
    
-    private MessageFactory<T> mf;
+    private final MessageFactory<T> mf;
     private Map<Integer, MessageFieldGen> randomFields;
     private long randomID = 0;
-    private long MAX_RANDOM_ID = Long.MAX_VALUE;
+    private final long MAX_RANDOM_ID = Long.MAX_VALUE;
     
     private final Calendar MIN_CALENDAR;
     private final Calendar MAX_CALENDAR;   
@@ -136,7 +137,7 @@ public class MessageFactoryDecorator <T extends IsoMessage> {
                     @Override
                     public InputSource resolveEntity(String publicId, String systemId)
                             throws SAXException, IOException {
-                        if (systemId.indexOf("j8583-simulator.dtd") >= 0) {
+                        if (systemId.contains("j8583-simulator.dtd")) {
                             URL dtd = getClass().getResource("j8583.dtd");
                             if (dtd == null) {
                                 logger.warn("Cannot find j8583-simulator.dtd in classpath. j8583-randomGen config files will not be validated.");

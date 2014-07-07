@@ -1,12 +1,11 @@
 package org.j8583.simulator;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class App {
 
-    private static Logger logger = LoggerFactory.getLogger(App.class);
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
     private static final int THREADS_DEFAULT = 1;
     private static final long THREAD_DELAY_DEFAULT = 100;
     private static final long MESSAGE_FREC_DEFAULT = 1;
