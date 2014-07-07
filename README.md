@@ -6,8 +6,9 @@ Generacion de Mensajes de prueba ISO-8583 sobre TCP
 
 Modo de uso
 ------------------------------
+````batch
 
-java -jar j8583-Simulator.jar
+$> java -jar j8583-Simulator.jar
 usage: 2 [-d <arg>] -defF [-delay <arg>] [-h] -host <arg> [-m <arg>] -port
        <arg> [-r <arg>] [-s <arg>] [-t <arg>] [-tout <arg>] [-v]
  -d,--dStart <arg>        Thread start delay frecuency.
@@ -22,5 +23,7 @@ usage: 2 [-d <arg>] -defF [-delay <arg>] [-h] -host <arg> [-m <arg>] -port
  -t,--threads <arg>       Number of threads.
  -tout,--timeout <arg>    Connection timeout.
  -v,--verbose             Enable verbose mode.
+
+````
 
 
