@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build Component') {
+    stage('Compile And Build') {
       steps {
         withMaven(maven: 'maven', jdk: 'jdk') {
           sh 'mvn clean install'
@@ -9,7 +9,7 @@ pipeline {
         
       }
     }
-    stage('Deploy STG') {
+    stage('Deploy US3-STG') {
       steps {
         echo 'Deploy on STG'
       }
