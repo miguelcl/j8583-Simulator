@@ -1,9 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('build') {
       steps {
-        withMaven(maven: 'maven', jdk: 'jdk')
+        withMaven(maven: 'maven', jdk: 'jdk') {
+          sh 'mvn clean install'
+        }
+        
       }
     }
   }
