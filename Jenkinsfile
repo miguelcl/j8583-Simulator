@@ -1,24 +1,36 @@
 pipeline {
   agent any
   stages {
-    stage('test-g1') {
+    stage('Build Component') {
+      steps {
+        withMaven(maven: 'maven', jdk: 'jdk') {
+          sh 'mvn clean install'
+        }
+        
+      }
+    }
+    stage('Deploy STG') {
+      steps {
+        echo 'Deploy on STG'
+      }
+    }
+    stage('Testing') {
       parallel {
-        stage('build') {
+        stage('LB_STATUS') {
           steps {
-            withMaven(maven: 'maven', jdk: 'jdk') {
-              sh 'mvn clean install'
-            }
-            
+            echo 'Validate LB_STATUS'
           }
         }
-        stage('build-g1') {
+        stage('ITest') {
           steps {
-            withMaven(jdk: 'jdk', maven: 'maven') {
-              echo 'aca'
-            }
-            
+            echo 'Checking LB_STATUS'
           }
         }
+      }
+    }
+    stage('Send Email') {
+      steps {
+        echo 'Sending Email Report'
       }
     }
   }
