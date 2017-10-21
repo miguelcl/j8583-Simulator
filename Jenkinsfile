@@ -14,18 +14,10 @@ pipeline {
         echo 'Deploy on STG'
       }
     }
-    stage('Testing') {
-      parallel {
-        stage('LB_STATUS') {
-          steps {
-            echo 'Validate LB_STATUS'
-          }
-        }
-        stage('ITest') {
-          steps {
-            echo 'Checking LB_STATUS'
-          }
-        }
+    stage('IT') {
+      steps {
+        echo 'Execute IT Jobs'
+        build(job: 'integration-test-gmp-stg', wait: true)
       }
     }
     stage('Send Email') {
