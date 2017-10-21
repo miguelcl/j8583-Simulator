@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        withMaven()
+        withMaven(maven: 'maven', jdk: 'jdk')
       }
     }
   }
